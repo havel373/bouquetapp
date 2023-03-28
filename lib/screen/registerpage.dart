@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../loginpage/loginpage.dart';
+import 'loginpage.dart';
 
 
 class registerpage extends StatelessWidget {
@@ -84,71 +84,12 @@ class registerpage extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(10))),
                                 child: TextFormField(
                                   decoration: const InputDecoration(
-                                    hintText: "Nama Lengkap",
+                                    hintText: "Password",
                                     border: InputBorder.none,
                                   ),
                                 ),
                               ),
                               const SizedBox(height: 10),
-                              new Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 2, vertical: 5),
-                                decoration: const BoxDecoration(
-                                    color: Color(0xfff5f8fd),
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Nama Pengguna",
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              new Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 2, vertical: 5),
-                                decoration: const BoxDecoration(
-                                    color: Color(0xfff5f8fd),
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Kata Sandi",
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              new Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 2, vertical: 5),
-                                decoration: const BoxDecoration(
-                                    color: Color(0xfff5f8fd),
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Kode Pos",
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 2, vertical: 5),
-                                decoration: const BoxDecoration(
-                                    color: Color(0xfff5f8fd),
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Nama jalan dan No Rumah",
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
                             ]),
                       ),
 

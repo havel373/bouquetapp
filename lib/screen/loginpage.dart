@@ -1,6 +1,10 @@
+import 'package:bouquetapp/screen/HomePage.dart';
+import 'package:bouquetapp/screen/registerpage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../bouquet_list_screen.dart';
+
+import 'chooseloginregister.dart';
 
 
 class loginpage extends StatelessWidget {
@@ -89,7 +93,7 @@ class loginpage extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: const Text(
-                      "Forgot Password?",
+                      "Lupa Kata Sandi?",
                       style: TextStyle(
                           color: Colors.deepPurpleAccent,
                           fontWeight: FontWeight.w500),
@@ -110,11 +114,39 @@ class loginpage extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(context,
                             MaterialPageRoute(
-                                builder: (context) => BouquetListScreen()
+                                builder: (context) => HomePage()
                             )
                         );
                       },
                       child: const Text("Masuk"),
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  Container(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      textAlign: TextAlign.end,
+                      maxLines: 1,
+                      text: TextSpan(
+                        style: DefaultTextStyle.of(context).style,
+                        children: <TextSpan>[
+                          TextSpan(
+                              style: new TextStyle(fontSize: 12, color: Colors.black),
+                              text: 'Belum Punya Akun? '),
+                          TextSpan(
+                            style: new TextStyle(fontSize: 12,color: Colors.deepPurpleAccent),
+                              text: 'Daftar',
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(
+                                          builder: (context) => registerpage()
+                                      )
+                                  )
+                                }
+                                ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

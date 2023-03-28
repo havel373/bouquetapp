@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'homepage/chooseloginregister.dart';
+import 'screen/chooseloginregister.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,20 +17,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+        debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
             title: const Text('DEL BOUQUET APP'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset("assets/images/logo_app.jpeg",
-              fit: BoxFit.cover),
-              Container(
-                margin: const EdgeInsets.only(top: 20),
-                width: 200,
-                height: 45,
+        body: Container(
+            width: double.infinity,
+            height: double.infinity,
+              decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: new AssetImage("assets/images/background.jpeg"),
+                    fit: BoxFit.fill,
+                  ),
+              ),
+             child: Center(
+
                 child: Builder(
                   builder: (context) {
                     return ElevatedButton(
@@ -50,14 +52,13 @@ class MyApp extends StatelessWidget {
                         ),
                       )
                     );
-                  }
+                }
                 )
               )
-            ],
-          ),
-        )
-      ),
+    )
+      )
     );
+
   }
 }
 

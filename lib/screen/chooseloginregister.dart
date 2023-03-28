@@ -1,6 +1,5 @@
+import 'package:bouquetapp/screen/loginpage.dart';
 import 'package:flutter/material.dart';
-
-import 'beginPage.dart';
 
 class chooseloginregister extends StatelessWidget {
   const chooseloginregister({super.key});
@@ -10,8 +9,6 @@ class chooseloginregister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,7 +24,7 @@ class chooseloginregister extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(
-                      builder: (context) => beginPage()
+                      builder: (context) => loginpage()
                   )
               );
             },
@@ -44,7 +41,7 @@ class chooseloginregister extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(
-                        builder: (context) => beginPage()
+                        builder: (context) => loginpage()
                     )
                 );
               },
