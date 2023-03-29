@@ -19,9 +19,6 @@ class MyApp extends StatelessWidget {
       ),
         debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-            title: const Text('DEL BOUQUET APP'),
-        ),
         body: Container(
             width: double.infinity,
             height: double.infinity,

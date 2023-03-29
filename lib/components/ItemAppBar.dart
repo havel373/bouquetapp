@@ -35,7 +35,7 @@ class _ItemAppBarState extends State<ItemAppBar> {
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 235, 122, 56),
+                color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
           ),

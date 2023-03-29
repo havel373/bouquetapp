@@ -9,20 +9,36 @@ import '../components/CategoriesWidget.dart';
 import '../components/HomeAppBar.dart';
 import '../components/ItemsWidgets.dart';
 import '../components/SideNavbar.dart';
+import 'NotificationPage.dart';
+import 'UserProfilePage.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
-  final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+  class _HomePageState extends State<HomePage> {
+
+    int selectedPageIndex = 0;
+    int _selectedIndex = 0;
+
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+
+    final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldState,
-      drawer: SideNavBar(),
       body: ListView(
         children: [
-          HomeAppBar(data: _scaffoldState), // nav bar
-          // buscador
+          HomeAppBar(data: _scaffoldState),
+
           Container(
             // height: 500,
             padding: EdgeInsets.only(top: 15),
@@ -37,52 +53,7 @@ class HomePage extends StatelessWidget {
               children: [
                 // CARRUCEL
                 Carrusel(),
-                // //BUscar
-                // Container(
-                //   padding: EdgeInsets.symmetric(horizontal: 15),
-                //   margin: EdgeInsets.symmetric(horizontal: 15),
-                //   decoration: BoxDecoration(
-                //       color: Colors.white,
-                //       borderRadius: BorderRadius.circular(30)),
-                //   child: Row(
-                //     children: [
-                //       Container(
-                //         height: 50,
-                //         width: MediaQuery.of(context).size.width / 1.4,
-                //         margin: EdgeInsets.only(left: 5),
-                //         child: TextFormField(
-                //           decoration: InputDecoration(
-                //               border: InputBorder.none, hintText: "Buscar..."),
-                //         ),
-                //       ),
-                //       Spacer(),
-                //       Icon(
-                //         Icons.search_rounded,
-                //         size: 23,
-                //         color: Color.fromARGB(255, 235, 122, 56), //0xFF4C53A2
-                //       )
-                //     ],
-                //   ),
-                // ),
 
-                // TITLE categorias
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                  child: Text(
-                    "Kategori",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 235, 122, 56), //0xFF4C53A2
-                    ),
-                  ),
-                ),
-
-                // CATEGORIAS
-                CategoriesWidget(),
-
-                // TITLE Items
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -91,41 +62,40 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 235, 122, 56), //0xFF4C53A2
+                      color: Color.fromARGB(255, 0, 0, 0), //0xFF4C53A2
                     ),
                   ),
                 ),
 
-                // PRODUCTOS
                 ItemsWidget(),
               ],
             ),
           )
         ],
+
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        onTap: (index) {},
-        height: 55,
-        color: Color.fromARGB(255, 235, 122, 56), //0xFF4C53A2
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
-            color: Colors.white,
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
           ),
-          Icon(
-            CupertinoIcons.cart_fill,
-            size: 30,
-            color: Colors.white,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: '',
           ),
-          Icon(
-            Icons.list,
-            size: 30,
-            color: Colors.white,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: '',
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+        onTap: _onItemTapped,
       ),
     );
+
   }
+
 }
